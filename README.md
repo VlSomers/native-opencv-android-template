@@ -35,7 +35,7 @@ How to use this repository
           
 6. Sync Gradle and run the application on your Android Device!
 
-Bootstrap an Android project with Native OpenCv support
+Bootstrap a new Android project with Native OpenCv support
 -------------------------------------------------------
 
 Here are the steps to follow to create a new Android Studio project with native OpenCV support :
