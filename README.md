@@ -22,7 +22,7 @@ How to use this repository
  
  3. Clone this repository as an Android Studio project :
      * In Android Studio, click on `File -> New -> Project from Version Control -> Git`
-     * Paste this repository URL *git@github.com:VlSomers/native-opencv-android-template.git*, choose project directory and click next.
+     * Paste this repository *Github URL*, choose *project directory* and click next.
      
 4. Install *OpenCV Android release* :
     * Download [OpenCV 4.1.0 Android release](https://sourceforge.net/projects/opencvlibrary/files/4.1.0/opencv-4.1.0-android-sdk.zip/download) or download latest available Android release on [OpenCV website](https://opencv.org/releases/) (note that these instructions doesn't work with OpenCV 4.1.1).
