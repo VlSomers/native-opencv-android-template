@@ -84,7 +84,7 @@ Here are the steps to follow to create a new Android Studio project with native 
     * You can copy paste [activity_main.xml](/app/src/main/res/layout/activity_main.xml) file.
     
 11. Add native code in *native-lib.cpp* :
-    * You can copy paste [native-lib.cpp](src/main/cpp/native-lib.cpp) file. Do not forget to adapt the method name : 
+    * You can copy paste [native-lib.cpp](app/src/main/cpp/native-lib.cpp) file. Do not forget to adapt the method name : 
     `Java_com_example_nativeopencvtemplate_MainActivity_adaptiveThresholdFromJNI`
     should be replaced with 
     `Java_<main-activity-package-name-with-underscores>_MainActivity_adaptiveThresholdFromJNI`.
