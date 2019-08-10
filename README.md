@@ -28,7 +28,7 @@ How to use this repository
     * Download [OpenCV 4.1.0 Android release](https://sourceforge.net/projects/opencvlibrary/files/4.1.0/opencv-4.1.0-android-sdk.zip/download) or download latest available Android release on [OpenCV website](https://opencv.org/releases/) (note that these instructions doesn't work with OpenCV 4.1.1).
     * Unzip downloaded file and put **OpenCV-android-sdk** directory on a path of your choice.
  
-5. Link your *Android Studio* project to the *OpenCV Android SDK* you just downloaded:
+5. Link your *Android Studio* project to the *OpenCV Android SDK* you just downloaded :
     * Open [gradle.properties](gradle.properties) file and edit following line with your own *OpenCV Android SDK* directory path :
     
           opencvsdk=/Users/Example/Downloads/OpenCV-android-sdk
