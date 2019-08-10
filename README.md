@@ -1,4 +1,4 @@
-Native OpenCV for Android with JNI and Android NDK
+Native OpenCV for Android with Android NDK
 =======================================
 
 A tutorial for setting up OpenCV 4.1.0 for Android on [Android Studio](https://developer.android.com/studio) with Native Development Kit (NDK) support. 
@@ -30,19 +30,19 @@ Here are the steps to follow to create a new Android Studio project with native 
     
 4. Install *OpenCV Android release* :
     * Download [OpenCV 4.1.0 Android release](https://sourceforge.net/projects/opencvlibrary/files/4.1.0/opencv-4.1.0-android-sdk.zip/download) or download latest available Android release on [OpenCV website](https://opencv.org/releases/) (note that these instructions doesn't work with OpenCV 4.1.1).
-    * Unzip downloaded file and put **OpenCV-android-sdk** directory on a path of your choice. We will refer to the location of the OpenCv Android Sdk you just downloaded as <path_to_opencv_android_sdk_rootdir>.
+    * Unzip downloaded file and put **OpenCV-android-sdk** directory on a path of your choice. We will refer to the location of the *OpenCV Android SDK* you just downloaded as **<path_to_opencv_android_sdk_rootdir>**.
     
 5. Add *OpenCV Android SDK* as a module into your project :
-    * Open *setting.gradle* file and append these two lines.
+    * Open [setting.gradle](settings.gradle) file and append these two lines.
     
           include ':opencv'
           project(':opencv').projectDir = new File(opencvsdk + '/sdk')
         
-    * Open *gradle.properties* file and append following line. Do not forget to use correct OpenCV Android Sdk path for your machine. 
+    * Open [gradle.properties](gradle.properties) file and append following line. Do not forget to use correct OpenCV Android Sdk path for your machine. 
     
           opencvsdk=<path_to_opencv_android_sdk_rootdir>
           
-    * Open *app/build.gradle* file and add `implementation project(path: ':opencv')` to dependencies section :
+    * Open [build.gradle](app/build.gradle) file and add `implementation project(path: ':opencv')` to dependencies section :
     
           dependencies {
               ...
@@ -59,13 +59,13 @@ Here are the steps to follow to create a new Android Studio project with native 
           arguments "-DOpenCV_DIR=" + opencvsdk + "/sdk/native"
         
 7. Add following config to [CMakeLists.txt](app/src/main/cpp/CMakeLists.txt) file :
-    * Before *add_library* instruction, add three following lines :
+    * Before `add_library instruction, add three following lines :
     
           include_directories(${OpenCV_DIR}/jni/include)
           add_library( lib_opencv SHARED IMPORTED )
           set_target_properties(lib_opencv PROPERTIES IMPORTED_LOCATION ${OpenCV_DIR}/libs/${ANDROID_ABI}/libopencv_java4.so)
         
-    * In *target_link_libraries* instruction arguments, add following line :
+    * In target_link_libraries` instruction arguments, add following line :
     
           lib_opencv
         
