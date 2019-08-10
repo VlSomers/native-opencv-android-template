@@ -1,20 +1,19 @@
-Native OpenCV for Android with Android NDK
-==========================================
+# Native OpenCV for Android with Android NDK
 
 A tutorial for setting up OpenCV 4.1.0 for Android in [Android Studio](https://developer.android.com/studio) with Native Development Kit (NDK) support. 
 [Android NDK](https://developer.android.com/ndk) enables you to implement your [OpenCV](https://opencv.org) image processing pipeline in C++ and call that C++ code from Android Kotlin/Java code through JNI ([Java Native Interface](https://en.wikipedia.org/wiki/Java_Native_Interface)). 
 
-Tools versions
---------------
+## Setup
 
-* [OpenCV](https://opencv.org) - 4.1.0
-* [Android Studio](https://developer.android.com/studio) - 3.4.2
-* [Android Build Tool](https://developer.android.com/about) - 29.0.1
-* [Android NDK](https://developer.android.com/ndk/guides) - Revision r20
-* [Kotlin](https://kotlinlang.org/docs/reference/) - 1.3.41
+| Tool      | Version |
+| ---       |  ---    |
+| [OpenCV](https://opencv.org) | 4.1.0
+| [Android Studio](https://developer.android.com/studio) | 3.4.2
+| [Android Build Tool](https://developer.android.com/about) | 29.0.1
+| [Android NDK](https://developer.android.com/ndk/guides) | Revision r20
+| [Kotlin](https://kotlinlang.org/docs/reference/) | 1.3.41
 
-How to use this repository
---------------------------
+## How to use this repository
 
  1. [Download and Install Android Studio](https://developer.android.com/studio)
  
@@ -35,8 +34,7 @@ How to use this repository
           
 6. Sync Gradle and run the application on your Android Device!
 
-Bootstrap a new Android project with Native OpenCv support
--------------------------------------------------------
+## Bootstrap a new Android project with Native OpenCv support
 
 Here are the steps to follow to create a new Android Studio project with native OpenCV support :
 
@@ -120,16 +118,14 @@ Here are the steps to follow to create a new Android Studio project with native 
 ![alt text](images/native-opencv-android-template-screenshot.jpg)
 
 
-Questions and Remarks
------------------------
+## Questions and Remarks
 
 If you have any question or remark regarding this tutorial, feel free to open an issue.
 
-Acknowledgments
--------------------
+## Acknowledgments
 
 This tutorial was inspired from this very good [Github repository](https://github.com/leadrien/opencv_native_androidstudio).
 
-Keywords
-----------
+## Keywords
+
 OpenCV 4.1.0, Android, Android Studio, Native, NDK, Native Development Kit, JNI, Java Native Interface, C++, Kotlin
