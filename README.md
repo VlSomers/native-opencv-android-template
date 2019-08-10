@@ -1,5 +1,5 @@
 Native OpenCV for Android with Android NDK
-=======================================
+==========================================
 
 A tutorial for setting up OpenCV 4.1.0 for Android on [Android Studio](https://developer.android.com/studio) with Native Development Kit (NDK) support. 
 [Android NDK](https://developer.android.com/ndk) enables you to implement your [OpenCV](https://opencv.org) image processing pipeline in C++ and call that C++ code from Android's Kotlin/Java code through JNI ([Java Native Interface](https://en.wikipedia.org/wiki/Java_Native_Interface)). 
@@ -13,8 +13,30 @@ Tools versions
 * [Android NDK](https://developer.android.com/ndk/guides) - Revision r20
 * [Kotlin](https://kotlinlang.org/docs/reference/) - 1.3.41
 
+How to use this repository
+--------------------------
+
+ 1. [Download and Install Android Studio](https://developer.android.com/studio)
+ 
+ 2. [Install NDK, CMake and LLDB](https://developer.android.com/ndk/guides#download-ndk)
+ 
+ 3. Clone this repository as an Android Studio project :
+     * In Android Studio, click on `File -> New -> Project from Version Control -> Git`
+     * Paste this repository URL *git@github.com:VlSomers/native-opencv-android-template.git*, choose project directory and click next.
+     
+4. Install *OpenCV Android release* :
+    * Download [OpenCV 4.1.0 Android release](https://sourceforge.net/projects/opencvlibrary/files/4.1.0/opencv-4.1.0-android-sdk.zip/download) or download latest available Android release on [OpenCV website](https://opencv.org/releases/) (note that these instructions doesn't work with OpenCV 4.1.1).
+    * Unzip downloaded file and put **OpenCV-android-sdk** directory on a path of your choice. We will refer to the location of the *OpenCV Android SDK* you just downloaded as **<path_to_opencv_android_sdk_rootdir>**.
+ 
+5. Link your *Android Studio* project to the *OpenCV Android SDK* you just downloaded:
+    * Open [gradle.properties](gradle.properties) file and edit following line with your *OpenCV Android SDK* directory path :
+    
+          opencvsdk=<path_to_opencv_android_sdk_rootdir>
+          
+6. Sync Gradle and run the application on your Android Device!
+
 Bootstrap an Android project with Native OpenCv support
--------------------------------------------------------------
+-------------------------------------------------------
 
 Here are the steps to follow to create a new Android Studio project with native OpenCV support :
 
@@ -38,7 +60,7 @@ Here are the steps to follow to create a new Android Studio project with native 
           include ':opencv'
           project(':opencv').projectDir = new File(opencvsdk + '/sdk')
         
-    * Open [gradle.properties](gradle.properties) file and append following line. Do not forget to use correct OpenCV Android Sdk path for your machine. 
+    * Open [gradle.properties](gradle.properties) file and append following line. Do not forget to use correct *OpenCV Android SDK* path for your machine. 
     
           opencvsdk=<path_to_opencv_android_sdk_rootdir>
           
