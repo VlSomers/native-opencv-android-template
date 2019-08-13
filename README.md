@@ -13,6 +13,7 @@ A tutorial for setting up OpenCV 4.1.0 for Android in [Android Studio](https://d
 | [Android Build Tool](https://developer.android.com/about) | 29.0.1
 | [Android NDK](https://developer.android.com/ndk/guides) | Revision r20
 | [Kotlin](https://kotlinlang.org/docs/reference/) | 1.3.41
+| Mac OS | 10.14.5
 
 ## How to use this repository
 
