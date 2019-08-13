@@ -2,7 +2,9 @@
 # Native OpenCV for Android with Android NDK
 
 A tutorial for setting up OpenCV 4.1.0 for Android in [Android Studio](https://developer.android.com/studio) with Native Development Kit (NDK) support. 
-[Android NDK](https://developer.android.com/ndk) enables you to implement your [OpenCV](https://opencv.org) image processing pipeline in C++ and call that C++ code from Android Kotlin/Java code through JNI ([Java Native Interface](https://en.wikipedia.org/wiki/Java_Native_Interface)). 
+[Android NDK](https://developer.android.com/ndk) enables you to implement your [OpenCV](https://opencv.org) image processing pipeline in C++ and call that C++ code from Android Kotlin/Java code through JNI ([Java Native Interface](https://en.wikipedia.org/wiki/Java_Native_Interface)).
+
+This sample Android application displays a live camera feed with an OpenCV *adaptive threshold* filter applied on each frame. The OpenCV *adaptive threshold* call is performed in C++.
 
 ## Setup
 
