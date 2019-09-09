@@ -29,7 +29,7 @@ This sample Android application displays a live camera feed with an OpenCV *adap
      * Paste this repository *Github URL*, choose a *project directory* and click next.
      
 4. Install *OpenCV Android release* :
-    * Download [OpenCV 4.1.1 Android release](https://sourceforge.net/projects/opencvlibrary/files/4.1.1/opencv-4.1.1-android-sdk.zip/download) or download latest available Android release on [OpenCV website](https://opencv.org/releases/) (note that these instructions doesn't work with OpenCV 4.1.1).
+    * Download [OpenCV 4.1.1 Android release](https://sourceforge.net/projects/opencvlibrary/files/4.1.1/opencv-4.1.1-android-sdk.zip/download) or download latest available Android release on [OpenCV website](https://opencv.org/releases/).
     * Unzip downloaded file and put **OpenCV-android-sdk** directory on a path of your choice.
  
 5. Link your *Android Studio* project to the *OpenCV Android SDK* you just downloaded :
@@ -54,7 +54,7 @@ Here are the steps to follow to create a new Android Studio project with native 
     * Choose `Toolchain default` as *C++ standard* and click Finish.
     
 4. Install *OpenCV Android release* :
-    * Download [OpenCV 4.1.1 Android release](https://sourceforge.net/projects/opencvlibrary/files/4.1.1/opencv-4.1.1-android-sdk.zip/download) or download latest available Android release on [OpenCV website](https://opencv.org/releases/) (note that these instructions doesn't work with OpenCV 4.1.1).
+    * Download [OpenCV 4.1.1 Android release](https://sourceforge.net/projects/opencvlibrary/files/4.1.1/opencv-4.1.1-android-sdk.zip/download) or download latest available Android release on [OpenCV website](https://opencv.org/releases/).
     * Unzip downloaded file and put **OpenCV-android-sdk** directory on a path of your choice.
     
 5. Add *OpenCV Android SDK* as a module into your project :
