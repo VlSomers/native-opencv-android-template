@@ -2,7 +2,6 @@ package com.example.nativeopencvandroidtemplate
 
 import android.Manifest
 import android.app.Activity
-import android.content.pm.PackageManager
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
@@ -103,12 +102,6 @@ class MainActivity : Activity(), CameraBridgeViewBase.CvCameraViewListener2 {
     override fun onCameraViewStarted(width: Int, height: Int) {}
 
     override fun onCameraViewStopped() {}
-
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
-        if (requestCode == 1 && grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            mOpenCvCameraView!!.setCameraPermissionGranted()
-        }
-    }
 
     override fun onCameraFrame(inputFrame: CameraBridgeViewBase.CvCameraViewFrame): Mat {
         val result = Mat()
