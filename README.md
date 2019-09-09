@@ -133,4 +133,4 @@ This tutorial was inspired from this very good [Github repository](https://githu
 
 ## Keywords
 
-OpenCV 4.1.1, Android, Android Studio, Native, NDK, Native Development Kit, JNI, Java Native Interface, C++, Kotlin
+Tutorial, Template, OpenCV 4.1.1, Android, Android Studio, Native, NDK, Native Development Kit, JNI, Java Native Interface, C++, Kotlin
