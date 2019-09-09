@@ -1,0 +1,19 @@
+{
+  "buildFiles": [
+    "/Users/vladimirsomersprivate/Library/Android/sdk/ndk/20.0.5594570/build/cmake/android.toolchain.cmake",
+    "/Users/vladimirsomersprivate/SudokuProject/OtherProjects/native-opencv-android-template/app/src/main/cpp/CMakeLists.txt",
+    "/Users/vladimirsomersprivate/Library/Android/sdk/ndk/20.0.5594570/build/cmake/platforms.cmake"
+  ],
+  "cleanCommands": [
+    "/Users/vladimirsomersprivate/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja -C \"/Users/vladimirsomersprivate/SudokuProject/OtherProjects/native-opencv-android-template/app/.cxx/cmake/debug/x86\" clean"
+  ],
+  "buildTargetsCommand": "/Users/vladimirsomersprivate/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja -C \"/Users/vladimirsomersprivate/SudokuProject/OtherProjects/native-opencv-android-template/app/.cxx/cmake/debug/x86\" {LIST_OF_TARGETS_TO_BUILD}",
+  "libraries": {
+    "native-lib-Debug-x86": {
+      "artifactName": "native-lib",
+      "buildCommand": "/Users/vladimirsomersprivate/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja -C \"/Users/vladimirsomersprivate/SudokuProject/OtherProjects/native-opencv-android-template/app/.cxx/cmake/debug/x86\" native-lib",
+      "abi": "x86",
+      "output": "/Users/vladimirsomersprivate/SudokuProject/OtherProjects/native-opencv-android-template/app/build/intermediates/cmake/debug/obj/x86/libnative-lib.so"
+    }
+  }
+}

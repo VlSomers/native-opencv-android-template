@@ -1,0 +1,42 @@
+{
+  "stringTable": {
+    "0": "/Users/vladimirsomersprivate/SudokuProject/OtherProjects/native-opencv-android-template/app/.cxx/cmake/release/armeabi-v7a",
+    "1": "--target=armv7-none-linux-androideabi28 --gcc-toolchain=/Users/vladimirsomersprivate/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/vladimirsomersprivate/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -Dnative_lib_EXPORTS -I/Users/vladimirsomersprivate/Downloads/OpenCV411-android-sdk/sdk/native/jni/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -march=armv7-a -mthumb -Wa,--noexecstack -Wformat -Werror=format-security -frtti -fexceptions -Oz -DNDEBUG -fPIC"
+  },
+  "buildFiles": [
+    "/Users/vladimirsomersprivate/Library/Android/sdk/ndk/20.0.5594570/build/cmake/android.toolchain.cmake",
+    "/Users/vladimirsomersprivate/SudokuProject/OtherProjects/native-opencv-android-template/app/src/main/cpp/CMakeLists.txt",
+    "/Users/vladimirsomersprivate/Library/Android/sdk/ndk/20.0.5594570/build/cmake/platforms.cmake"
+  ],
+  "cleanCommands": [
+    "/Users/vladimirsomersprivate/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja -C \"/Users/vladimirsomersprivate/SudokuProject/OtherProjects/native-opencv-android-template/app/.cxx/cmake/release/armeabi-v7a\" clean"
+  ],
+  "buildTargetsCommand": "/Users/vladimirsomersprivate/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja -C \"/Users/vladimirsomersprivate/SudokuProject/OtherProjects/native-opencv-android-template/app/.cxx/cmake/release/armeabi-v7a\" {LIST_OF_TARGETS_TO_BUILD}",
+  "libraries": {
+    "native-lib-Release-armeabi-v7a": {
+      "buildCommand": "/Users/vladimirsomersprivate/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja -C \"/Users/vladimirsomersprivate/SudokuProject/OtherProjects/native-opencv-android-template/app/.cxx/cmake/release/armeabi-v7a\" native-lib",
+      "buildType": "release",
+      "toolchain": "516847024",
+      "abi": "armeabi-v7a",
+      "artifactName": "native-lib",
+      "files": [
+        {
+          "src": "/Users/vladimirsomersprivate/SudokuProject/OtherProjects/native-opencv-android-template/app/src/main/cpp/native-lib.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        }
+      ],
+      "headers": [],
+      "output": "/Users/vladimirsomersprivate/SudokuProject/OtherProjects/native-opencv-android-template/app/build/intermediates/cmake/release/obj/armeabi-v7a/libnative-lib.so"
+    }
+  },
+  "toolchains": {
+    "516847024": {
+      "cppCompilerExecutable": "/Users/vladimirsomersprivate/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++"
+    }
+  },
+  "cFileExtensions": [],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}
