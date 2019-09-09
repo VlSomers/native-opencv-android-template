@@ -15,6 +15,8 @@ import org.opencv.android.LoaderCallbackInterface
 import org.opencv.android.OpenCVLoader
 import org.opencv.core.Mat
 
+private const val CAMERA_PERMISSION_REQUEST = 1
+
 class MainActivity : Activity(), CameraBridgeViewBase.CvCameraViewListener2 {
 
     private var mOpenCvCameraView: CameraBridgeViewBase? = null
@@ -46,7 +48,7 @@ class MainActivity : Activity(), CameraBridgeViewBase.CvCameraViewListener2 {
         ActivityCompat.requestPermissions(
             this@MainActivity,
             arrayOf(Manifest.permission.CAMERA),
-            1
+            CAMERA_PERMISSION_REQUEST
         )
 
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
@@ -57,6 +59,22 @@ class MainActivity : Activity(), CameraBridgeViewBase.CvCameraViewListener2 {
         mOpenCvCameraView!!.visibility = SurfaceView.VISIBLE
 
         mOpenCvCameraView!!.setCvCameraViewListener(this)
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+        when (requestCode) {
+            CAMERA_PERMISSION_REQUEST -> {
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    mOpenCvCameraView!!.setCameraPermissionGranted()
+                } else {
+                    Log.e(TAG, "camera permission was not granted")
+                    Toast.makeText(this, "camera permission was not granted", Toast.LENGTH_LONG).show()
+                }
+            }
+            else -> {
+                Log.e(TAG, "unexpecred permission request")
+            }
+        }
     }
 
     override fun onPause() {
