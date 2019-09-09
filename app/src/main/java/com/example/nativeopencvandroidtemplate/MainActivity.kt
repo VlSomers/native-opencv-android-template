@@ -47,7 +47,7 @@ class MainActivity : Activity(), CameraBridgeViewBase.CvCameraViewListener2 {
         ActivityCompat.requestPermissions(
             this@MainActivity,
             arrayOf(Manifest.permission.CAMERA),
-            1
+            CAMERA_PERMISSION_REQUEST
         )
 
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
@@ -58,6 +58,23 @@ class MainActivity : Activity(), CameraBridgeViewBase.CvCameraViewListener2 {
         mOpenCvCameraView!!.visibility = SurfaceView.VISIBLE
 
         mOpenCvCameraView!!.setCvCameraViewListener(this)
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+        when (requestCode) {
+            CAMERA_PERMISSION_REQUEST -> {
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    mOpenCvCameraView!!.setCameraPermissionGranted()
+                } else {
+                    val message = "Camera permission was not granted"
+                    Log.e(TAG, message)
+                    Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+                }
+            }
+            else -> {
+                Log.e(TAG, "Unexpected permission request")
+            }
+        }
     }
 
     override fun onPause() {
@@ -106,5 +123,6 @@ class MainActivity : Activity(), CameraBridgeViewBase.CvCameraViewListener2 {
     companion object {
 
         private const val TAG = "MainActivity"
+        private const val CAMERA_PERMISSION_REQUEST = 1
     }
 }
