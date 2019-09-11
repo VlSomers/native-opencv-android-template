@@ -39,7 +39,7 @@ This sample Android application displays a live camera feed with an OpenCV *adap
           
 6. Sync Gradle and run the application on your Android Device!
 
-## Bootstrap a new Android project with Native OpenCv support
+## Bootstrap a new Android project with Native OpenCV support
 
 Here are the steps to follow to create a new Android Studio project with native OpenCV support :
 
