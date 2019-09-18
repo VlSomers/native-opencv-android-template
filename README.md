@@ -22,7 +22,7 @@ This sample Android application displays a live camera feed with an OpenCV *adap
 
  1. [Download and Install Android Studio](https://developer.android.com/studio)
  
- 2. [Install NDK, CMake and LLDB](https://developer.android.com/ndk/guides#download-ndk)
+ 2. [Install NDK, CMake and LLDB](https://developer.android.com/studio/projects/install-ndk.md)
  
  3. Clone this repository as an Android Studio project :
      * In Android Studio, click on `File -> New -> Project from Version Control -> Git`
@@ -45,7 +45,7 @@ Here are the steps to follow to create a new Android Studio project with native 
 
 1. [Download and Install Android Studio](https://developer.android.com/studio)
 
-2. [Install NDK, CMake and LLDB](https://developer.android.com/ndk/guides#download-ndk)
+2. [Install NDK, CMake and LLDB](https://developer.android.com/studio/projects/install-ndk.md)
 
 3. Create a new *Native Android Studio project* :
     * Select `File -> New -> New Project...` from the main menu.
