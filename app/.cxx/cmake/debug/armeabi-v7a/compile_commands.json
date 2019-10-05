@@ -1,7 +1,0 @@
-[
-{
-  "directory": "/Users/vladimirsomersprivate/SudokuProject/OtherProjects/native-opencv-android-template/app/.cxx/cmake/debug/armeabi-v7a",
-  "command": "/Users/vladimirsomersprivate/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ --target=armv7-none-linux-androideabi28 --gcc-toolchain=/Users/vladimirsomersprivate/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/vladimirsomersprivate/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64/sysroot  -Dnative_lib_EXPORTS -I/Users/vladimirsomersprivate/Downloads/OpenCV411-android-sdk/sdk/native/jni/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -march=armv7-a -mthumb -Wa,--noexecstack -Wformat -Werror=format-security  -frtti -fexceptions -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/native-lib.dir/native-lib.cpp.o -c /Users/vladimirsomersprivate/SudokuProject/OtherProjects/native-opencv-android-template/app/src/main/cpp/native-lib.cpp",
-  "file": "/Users/vladimirsomersprivate/SudokuProject/OtherProjects/native-opencv-android-template/app/src/main/cpp/native-lib.cpp"
-}
-]
