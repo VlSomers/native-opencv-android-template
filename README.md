@@ -11,20 +11,20 @@ This sample Android application displays a live camera feed with an OpenCV *adap
 | Tool      | Version |
 | ---       |  ---    |
 | [OpenCV](https://opencv.org) | 4.1.1
-| [Android Studio](https://developer.android.com/studio) | 3.5.0
+| [Android Studio](https://developer.android.com/studio) | 3.5.1
 | [Android Build Tool](https://developer.android.com/about) | 29.0.1
 | [Android NDK](https://developer.android.com/ndk/guides) | Revision r20
 | [Kotlin](https://kotlinlang.org/docs/reference/) | 1.3.50
-| [Gradle](https://gradle.org) | 3.5.0
+| [Gradle](https://gradle.org) | 3.5.1
 | Mac OS | 10.14.5
 
 ## How to use this repository
 
- 1. [Download and Install Android Studio](https://developer.android.com/studio)
+1. [Download and Install Android Studio](https://developer.android.com/studio)
  
- 2. [Install NDK, CMake and LLDB](https://developer.android.com/studio/projects/install-ndk.md)
+2. [Install NDK, CMake and LLDB](https://developer.android.com/studio/projects/install-ndk.md)
  
- 3. Clone this repository as an Android Studio project :
+3. Clone this repository as an Android Studio project :
      * In Android Studio, click on `File -> New -> Project from Version Control -> Git`
      * Paste this repository *Github URL*, choose a *project directory* and click next.
      
@@ -39,6 +39,8 @@ This sample Android application displays a live camera feed with an OpenCV *adap
           
 6. Sync Gradle and run the application on your Android Device!
 
+Note: MainActivity is written in Kotlin but you can comment out the [Kotlin]((/app/src/main/kotlin/com/example/nativeopencvandroidtemplate/MainActivity.kt)) file and uncomment the [Java]((/app/src/main/java/com/example/nativeopencvandroidtemplate/MainActivity.java)) file to use Java.
+
 ## Bootstrap a new Android project with Native OpenCV support
 
 Here are the steps to follow to create a new Android Studio project with native OpenCV support :
@@ -50,7 +52,7 @@ Here are the steps to follow to create a new Android Studio project with native 
 3. Create a new *Native Android Studio project* :
     * Select `File -> New -> New Project...` from the main menu.
     * Click `Phone and Tablet tab`, select `Native C++` and click next.
-    * Choose an `Application Name`, select your favorite `language` (Kotlin in this tutorial), choose `Minimum API level` (28 here) and select next.
+    * Choose an `Application Name`, select your favorite `language` (Kotlin or Java), choose `Minimum API level` (28 here) and select next.
     * Choose `Toolchain default` as *C++ standard* and click Finish.
     
 4. Install *OpenCV Android release* :
@@ -103,7 +105,7 @@ Here are the steps to follow to create a new Android Studio project with native 
        <uses-feature android:name="android.hardware.camera.front.autofocus"/>
     
 9. Create your *MainActivity* :
-    * You can copy paste [MainActivity](/app/src/main/java/com/example/nativeopencvandroidtemplate/MainActivity.kt) file. Do not forget to adapt package name.
+    * You can copy paste MainActivity [Kotlin]((/app/src/main/kotlin/com/example/nativeopencvandroidtemplate/MainActivity.kt)) or [Java]((/app/src/main/java/com/example/nativeopencvandroidtemplate/MainActivity.java)) file. Do not forget to adapt package name.
     
 10. Create your *activity_main.xml* :
     * You can copy paste [activity_main.xml](/app/src/main/res/layout/activity_main.xml) file.
@@ -133,4 +135,4 @@ This tutorial was inspired from this very good [Github repository](https://githu
 
 ## Keywords
 
-Tutorial, Template, OpenCV 4.1.1, Android, Android Studio, Native, NDK, Native Development Kit, JNI, Java Native Interface, C++, Kotlin
+Tutorial, Template, OpenCV 4.1.1, Android, Android Studio, Native, NDK, Native Development Kit, JNI, Java Native Interface, C++, Kotlin, Java
