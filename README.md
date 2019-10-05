@@ -39,7 +39,7 @@ This sample Android application displays a live camera feed with an OpenCV *adap
           
 6. Sync Gradle and run the application on your Android Device!
 
-Note: MainActivity is written in Kotlin but you can comment out the [Kotlin]((/app/src/main/kotlin/com/example/nativeopencvandroidtemplate/MainActivity.kt)) file and uncomment the [Java]((/app/src/main/java/com/example/nativeopencvandroidtemplate/MainActivity.java)) file to use Java.
+Note: MainActivity is written in Kotlin but you can comment out the [Kotlin](/app/src/main/kotlin/com/example/nativeopencvandroidtemplate/MainActivity.kt) file and uncomment the [Java](/app/src/main/java/com/example/nativeopencvandroidtemplate/MainActivity.java) file to use Java.
 
 ## Bootstrap a new Android project with Native OpenCV support
 
@@ -105,7 +105,7 @@ Here are the steps to follow to create a new Android Studio project with native 
        <uses-feature android:name="android.hardware.camera.front.autofocus"/>
     
 9. Create your *MainActivity* :
-    * You can copy paste MainActivity [Kotlin]((/app/src/main/kotlin/com/example/nativeopencvandroidtemplate/MainActivity.kt)) or [Java]((/app/src/main/java/com/example/nativeopencvandroidtemplate/MainActivity.java)) file. Do not forget to adapt package name.
+    * You can copy paste MainActivity [Kotlin](/app/src/main/kotlin/com/example/nativeopencvandroidtemplate/MainActivity.kt) or [Java](/app/src/main/java/com/example/nativeopencvandroidtemplate/MainActivity.java) file. Do not forget to adapt package name.
     
 10. Create your *activity_main.xml* :
     * You can copy paste [activity_main.xml](/app/src/main/res/layout/activity_main.xml) file.
