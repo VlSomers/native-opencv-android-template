@@ -1,7 +1,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 # Native OpenCV for Android with Android NDK
 
-A tutorial for setting up OpenCV 4.1.1 for Android in [Android Studio](https://developer.android.com/studio) with Native Development Kit (NDK) support. 
+A tutorial for setting up OpenCV 4.1.2 for Android in [Android Studio](https://developer.android.com/studio) with Native Development Kit (NDK) support. 
 [Android NDK](https://developer.android.com/ndk) enables you to implement your [OpenCV](https://opencv.org) image processing pipeline in C++ and call that C++ code from Android Kotlin/Java code through JNI ([Java Native Interface](https://en.wikipedia.org/wiki/Java_Native_Interface)).
 
 This sample Android application displays a live camera feed with an OpenCV *adaptive threshold* filter applied on each frame. The OpenCV *adaptive threshold* call is performed in C++.
@@ -10,13 +10,13 @@ This sample Android application displays a live camera feed with an OpenCV *adap
 
 | Tool      | Version |
 | ---       |  ---    |
-| [OpenCV](https://opencv.org) | 4.1.1
+| [OpenCV](https://opencv.org) | 4.1.2
 | [Android Studio](https://developer.android.com/studio) | 3.5.1
 | [Android Build Tool](https://developer.android.com/about) | 29.0.1
 | [Android NDK](https://developer.android.com/ndk/guides) | Revision r20
 | [Kotlin](https://kotlinlang.org/docs/reference/) | 1.3.50
 | [Gradle](https://gradle.org) | 3.5.1
-| Mac OS | 10.14.5
+| Mac OS | 10.14.6
 
 ## How to use this repository
 
@@ -29,7 +29,7 @@ This sample Android application displays a live camera feed with an OpenCV *adap
      * Paste this repository *Github URL*, choose a *project directory* and click next.
      
 4. Install *OpenCV Android release* :
-    * Download [OpenCV 4.1.1 Android release](https://sourceforge.net/projects/opencvlibrary/files/4.1.1/opencv-4.1.1-android-sdk.zip/download) or download latest available Android release on [OpenCV website](https://opencv.org/releases/).
+    * Download [OpenCV 4.1.2 Android release](https://sourceforge.net/projects/opencvlibrary/files/4.1.2/opencv-4.1.2-android-sdk.zip/download) or download latest available Android release on [OpenCV website](https://opencv.org/releases/).
     * Unzip downloaded file and put **OpenCV-android-sdk** directory on a path of your choice.
  
 5. Link your *Android Studio* project to the *OpenCV Android SDK* you just downloaded :
@@ -56,7 +56,7 @@ Here are the steps to follow to create a new Android Studio project with native 
     * Choose `Toolchain default` as *C++ standard* and click Finish.
     
 4. Install *OpenCV Android release* :
-    * Download [OpenCV 4.1.1 Android release](https://sourceforge.net/projects/opencvlibrary/files/4.1.1/opencv-4.1.1-android-sdk.zip/download) or download latest available Android release on [OpenCV website](https://opencv.org/releases/).
+    * Download [OpenCV 4.1.2 Android release](https://sourceforge.net/projects/opencvlibrary/files/4.1.2/opencv-4.1.2-android-sdk.zip/download) or download latest available Android release on [OpenCV website](https://opencv.org/releases/).
     * Unzip downloaded file and put **OpenCV-android-sdk** directory on a path of your choice.
     
 5. Add *OpenCV Android SDK* as a module into your project :
@@ -135,4 +135,4 @@ This tutorial was inspired from this very good [Github repository](https://githu
 
 ## Keywords
 
-Tutorial, Template, OpenCV 4.1.1, Android, Android Studio, Native, NDK, Native Development Kit, JNI, Java Native Interface, C++, Kotlin, Java
+Tutorial, Template, OpenCV 4.1.2, Android, Android Studio, Native, NDK, Native Development Kit, JNI, Java Native Interface, C++, Kotlin, Java
