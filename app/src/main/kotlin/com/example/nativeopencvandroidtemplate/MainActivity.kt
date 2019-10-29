@@ -59,7 +59,11 @@ class MainActivity : Activity(), CameraBridgeViewBase.CvCameraViewListener2 {
         mOpenCvCameraView!!.setCvCameraViewListener(this)
     }
 
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
         when (requestCode) {
             CAMERA_PERMISSION_REQUEST -> {
                 if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -103,15 +107,18 @@ class MainActivity : Activity(), CameraBridgeViewBase.CvCameraViewListener2 {
 
     override fun onCameraViewStopped() {}
 
-    override fun onCameraFrame(inputFrame: CameraBridgeViewBase.CvCameraViewFrame): Mat {
-        val result = Mat()
+    override fun onCameraFrame(frame: CameraBridgeViewBase.CvCameraViewFrame): Mat {
+        // get current camera frame as OpenCV Mat object
+        val mat = frame.gray()
 
-        adaptiveThresholdFromJNI(inputFrame.gray().nativeObjAddr, result.nativeObjAddr)
+        // native call to process current camera frame
+        adaptiveThresholdFromJNI(mat.nativeObjAddr)
 
-        return result
+        // return processed frame for live preview
+        return mat
     }
 
-    private external fun adaptiveThresholdFromJNI(input: Long, output: Long)
+    private external fun adaptiveThresholdFromJNI(matAddr: Long)
 
     companion object {
 

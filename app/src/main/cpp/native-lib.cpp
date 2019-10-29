@@ -9,16 +9,21 @@ using namespace std;
 using namespace cv;
 
 extern "C" {
-void JNICALL Java_com_example_nativeopencvandroidtemplate_MainActivity_adaptiveThresholdFromJNI(JNIEnv *env, jobject instance, jlong inputAddr, jlong outputAddr) {
+void JNICALL
+Java_com_example_nativeopencvandroidtemplate_MainActivity_adaptiveThresholdFromJNI(JNIEnv *env,
+                                                                                   jobject instance,
+                                                                                   jlong matAddr) {
 
-    Mat &input = *(Mat *) inputAddr;
-    Mat &output = *(Mat *) outputAddr;
+    // get Mat from raw address
+    Mat &mat = *(Mat *) matAddr;
 
     clock_t begin = clock();
 
-    cv::adaptiveThreshold(input, output, 255, ADAPTIVE_THRESH_MEAN_C, THRESH_BINARY_INV, 21, 5);
+    cv::adaptiveThreshold(mat, mat, 255, ADAPTIVE_THRESH_MEAN_C, THRESH_BINARY_INV, 21, 5);
 
-    double total_time = double (clock() - begin ) / CLOCKS_PER_SEC;
-    __android_log_print(ANDROID_LOG_INFO, TAG, "adaptiveThreshold computation time = %f seconds\n",  total_time);
+    // log computation time to Android Logcat
+    double totalTime = double(clock() - begin) / CLOCKS_PER_SEC;
+    __android_log_print(ANDROID_LOG_INFO, TAG, "adaptiveThreshold computation time = %f seconds\n",
+                        totalTime);
 }
 }
