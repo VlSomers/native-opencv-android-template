@@ -114,13 +114,16 @@
 //    }
 //
 //    @Override
-//    public Mat onCameraFrame(CvCameraViewFrame inputFrame) {
-//        Mat result = new Mat();
+//    public Mat onCameraFrame(CvCameraViewFrame frame) {
+//        // get current camera frame as OpenCV Mat object
+//        Mat mat = frame.gray();
 //
-//        adaptiveThresholdFromJNI(inputFrame.gray().getNativeObjAddr(), result.getNativeObjAddr());
+//        // native call to process current camera frame
+//        adaptiveThresholdFromJNI(mat.getNativeObjAddr());
 //
-//        return result;
+//        // return processed frame for live preview
+//        return mat;
 //    }
 //
-//    private native void adaptiveThresholdFromJNI(long input, long output);
+//    private native void adaptiveThresholdFromJNI(long mat);
 //}
