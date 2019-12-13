@@ -131,7 +131,7 @@ If you have any question or remark regarding this tutorial, feel free to open an
 
 ## Acknowledgments
 
-This tutorial was inspired from this very good [Github repository](https://github.com/leadrien/opencv_native_androidstudio).
+This tutorial was inspired by this very good [Github repository](https://github.com/leadrien/opencv_native_androidstudio).
 
 ## Keywords
 
