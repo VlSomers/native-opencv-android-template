@@ -86,7 +86,7 @@ Here are the steps to follow to create a new Android Studio project with native 
           arguments "-DOpenCV_DIR=" + opencvsdk + "/sdk/native"
         
 7. Add following config to [CMakeLists.txt](app/src/main/cpp/CMakeLists.txt) file :
-    * Before `add_library instruction`, add three following lines :
+    * Before `add_library` instruction, add three following lines :
     
           include_directories(${OpenCV_DIR}/jni/include)
           add_library( lib_opencv SHARED IMPORTED )
