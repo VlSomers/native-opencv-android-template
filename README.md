@@ -16,7 +16,7 @@ This sample Android application displays a live camera feed with an OpenCV *adap
 | [Android NDK](https://developer.android.com/ndk/guides) | Revision r20
 | [Kotlin](https://kotlinlang.org/docs/reference/) | 1.3.50
 | [Gradle](https://gradle.org) | 3.5.1
-| Mac OS | 10.14.6
+| Mac OS | 10.15.4
 
 ## How to use this repository
 
