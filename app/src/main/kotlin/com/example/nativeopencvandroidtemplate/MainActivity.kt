@@ -49,7 +49,6 @@ class MainActivity : Activity(), CameraBridgeViewBase.CvCameraViewListener2 {
             CAMERA_PERMISSION_REQUEST
         )
 
-        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         setContentView(R.layout.activity_main)
 
         mOpenCvCameraView = findViewById<CameraBridgeViewBase>(R.id.main_surface)

@@ -54,7 +54,6 @@
 //                CAMERA_PERMISSION_REQUEST
 //        );
 //
-//        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 //        setContentView(R.layout.activity_main);
 //
 //        mOpenCvCameraView = findViewById(R.id.main_surface);
