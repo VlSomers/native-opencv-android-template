@@ -11,12 +11,12 @@ This sample Android application displays a live camera feed with an OpenCV *adap
 | Tool      | Version |
 | ---       |  ---    |
 | [OpenCV](https://opencv.org) | 4.4.0
-| [Android Studio](https://developer.android.com/studio) | 3.6.2
-| [Android Build Tool](https://developer.android.com/about) | 29.0.1
-| [Android NDK](https://developer.android.com/ndk/guides) | Revision r20
-| [Kotlin](https://kotlinlang.org/docs/reference/) | 1.3.50
-| [Gradle](https://gradle.org) | 5.4.1
-| Mac OS | 10.15.4
+| [Android Studio](https://developer.android.com/studio) | 4.0.1
+| [Android Build Tool](https://developer.android.com/about) | 29.0.3
+| [Android NDK](https://developer.android.com/ndk/guides) | r21d
+| [Kotlin](https://kotlinlang.org/docs/reference/) | 1.3.72
+| [Gradle](https://gradle.org) | 6.1.1
+| Mac OS | 10.15.6
 
 ## How to use this repository
 
