@@ -1,7 +1,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 # Native OpenCV for Android with Android NDK
 
-A tutorial for setting up OpenCV 4.6.0 (and other 4.x.y versions) for Android in [Android Studio](https://developer.android.com/studio) with Native Development Kit (NDK) support.
+A tutorial for setting up OpenCV 4.12.0 (and other 4.x.y versions) for Android in [Android Studio](https://developer.android.com/studio) with Native Development Kit (NDK) support.
 [Android NDK](https://developer.android.com/ndk) enables you to implement your [OpenCV](https://opencv.org) image processing pipeline in C++ and call that C++ code from Android Kotlin/Java code through JNI ([Java Native Interface](https://en.wikipedia.org/wiki/Java_Native_Interface)).
 
 This sample Android application displays a live camera feed with an OpenCV *adaptive threshold* filter applied on each frame. The OpenCV *adaptive threshold* call is performed in C++.
@@ -10,12 +10,13 @@ This sample Android application displays a live camera feed with an OpenCV *adap
 
 | Tool      | Version |
 | ---       |  ---    |
-| [OpenCV](https://opencv.org) | 4.6.0
-| [Android Studio](https://developer.android.com/studio) | 2021.2.1
-| [Android Build Tool](https://developer.android.com/about) | 33.0
-| [Android NDK](https://developer.android.com/ndk/guides) | 25.0
-| [Kotlin](https://kotlinlang.org/docs/reference/) | 1.6.10
-| [Gradle](https://gradle.org) | 7.2.1
+| [OpenCV](https://opencv.org) | 4.12.0
+| [Android Studio](https://developer.android.com/studio) | 2024.2.1 (Ladybug)
+| [Android Build Tool](https://developer.android.com/about) | 34.0
+| [Android NDK](https://developer.android.com/ndk/guides) | 27.0
+| [Kotlin](https://kotlinlang.org/docs/reference/) | 1.8.10
+| [Gradle](https://gradle.org) | 8.13
+| Target SDK | 34 (Android 14)
 | Mac OS | 12.4
 
 ## How to use this repository
@@ -29,7 +30,7 @@ This sample Android application displays a live camera feed with an OpenCV *adap
      * Paste this repository *Github URL*, choose a *project directory* and click next.
 
 4. Install *OpenCV Android release* :
-    * Download [OpenCV 4.6.0 Android release](https://sourceforge.net/projects/opencvlibrary/files/4.6.0/opencv-4.6.0-android-sdk.zip/download) or download latest available Android release on [OpenCV website](https://opencv.org/releases/).
+    * Download [OpenCV 4.12.0 Android release](https://github.com/opencv/opencv/releases/download/4.12.0/opencv-4.12.0-android-sdk.zip) or download latest available Android release on [OpenCV website](https://opencv.org/releases/).
     * Unzip downloaded file and put **OpenCV-android-sdk** directory on a path of your choice.
 
 5. Link your *Android Studio* project to the *OpenCV Android SDK* you just downloaded :
@@ -52,11 +53,11 @@ Here are the steps to follow to create a new Android Studio project with native 
 3. Create a new *Native Android Studio project* :
     * Select `File -> New -> New Project...` from the main menu.
     * Click `Phone and Tablet tab`, select `Native C++` and click next.
-    * Choose an `Application Name`, select your favorite `language` (Kotlin or Java), choose `Minimum API level` (28 here) and select next.
+    * Choose an `Application Name`, select your favorite `language` (Kotlin or Java), choose `Minimum API level` (21 here) and select next.
     * Choose `Toolchain default` as *C++ standard* and click Finish.
 
 4. Install *OpenCV Android release* :
-    * Download [OpenCV 4.6.0 Android release](https://sourceforge.net/projects/opencvlibrary/files/4.6.0/opencv-4.6.0-android-sdk.zip/download) or download latest available Android release on [OpenCV website](https://opencv.org/releases/).
+    * Download [OpenCV 4.12.0 Android release](https://github.com/opencv/opencv/releases/download/4.12.0/opencv-4.12.0-android-sdk.zip) or download latest available Android release on [OpenCV website](https://opencv.org/releases/).
     * Unzip downloaded file and put **OpenCV-android-sdk** directory on a path of your choice.
     
 5. Add *OpenCV Android SDK* as a module into your project :
@@ -82,8 +83,8 @@ Here are the steps to follow to create a new Android Studio project with native 
     * In `android -> defaultConfig -> externalNativeBuild -> cmake` section, put these three lines :
     
           cppFlags "-frtti -fexceptions"
-          abiFilters 'x86', 'x86_64', 'armeabi-v7a', 'arm64-v8a'
-          arguments "-DOpenCV_DIR=" + opencvsdk + "/sdk/native"
+          abiFilters 'armeabi-v7a', 'arm64-v8a'
+          arguments "-DOpenCV_DIR=" + opencvsdk + "/sdk/native/jni"
         
 7. Add following config to [CMakeLists.txt](app/src/main/cpp/CMakeLists.txt) file :
     * Before `add_library` instruction, add three following lines :
