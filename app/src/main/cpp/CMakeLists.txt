@@ -3,11 +3,20 @@
 
 # Sets the minimum version of CMake required to build the native library.
 
-cmake_minimum_required(VERSION 3.4.1)
+cmake_minimum_required(VERSION 3.18.1)
 
-include_directories(${OpenCV_DIR}/jni/include)
-add_library( lib_opencv SHARED IMPORTED )
-set_target_properties(lib_opencv PROPERTIES IMPORTED_LOCATION ${OpenCV_DIR}/libs/${ANDROID_ABI}/libopencv_java4.so)
+project("native-lib")
+
+# Set OpenCV root directory - corrected path
+set(OpenCV_ROOT_DIR ${CMAKE_SOURCE_DIR}/../../../../OpenCV-android-sdk/sdk)
+
+# Include OpenCV headers
+include_directories(${OpenCV_ROOT_DIR}/native/jni/include)
+
+# Add prebuilt OpenCV library
+add_library(opencv_java4 SHARED IMPORTED)
+set_target_properties(opencv_java4 PROPERTIES
+    IMPORTED_LOCATION ${OpenCV_ROOT_DIR}/native/libs/${ANDROID_ABI}/libopencv_java4.so)
 
 # Creates and names a library, sets it as either STATIC
 # or SHARED, and provides the relative paths to its source code.
@@ -15,13 +24,19 @@ set_target_properties(lib_opencv PROPERTIES IMPORTED_LOCATION ${OpenCV_DIR}/libs
 # Gradle automatically packages shared libraries with your APK.
 
 add_library( # Sets the name of the library.
-        native-lib
+             native-lib
 
-        # Sets the library as a shared library.
-        SHARED
+             # Sets the library as a shared library.
+             SHARED
 
-        # Provides a relative path to your source file(s).
-        native-lib.cpp)
+             # Provides a relative path to your source file(s).
+             native-lib.cpp )
+
+# Configure 16 KB page size compatibility
+# Add linker flags for proper alignment to support 16 KB page sizes
+set_target_properties(native-lib PROPERTIES
+    LINK_FLAGS "-Wl,-z,max-page-size=16384"
+)
 
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because CMake includes system libraries in the search path by
@@ -30,21 +45,22 @@ add_library( # Sets the name of the library.
 # completing its build.
 
 find_library( # Sets the name of the path variable.
-        log-lib
+              log-lib
 
-        # Specifies the name of the NDK library that
-        # you want CMake to locate.
-        log)
+              # Specifies the name of the NDK library that
+              # you want CMake to locate.
+              log )
 
 # Specifies libraries CMake should link to your target library. You
 # can link multiple libraries, such as libraries you define in this
 # build script, prebuilt third-party libraries, or system libraries.
 
 target_link_libraries( # Specifies the target library.
-        native-lib
+                       native-lib
 
-        lib_opencv
+                       # OpenCV
+                       opencv_java4
 
-        # Links the target library to the log library
-        # included in the NDK.
-        ${log-lib})
+                       # Links the target library to the log library
+                       # included in the NDK.
+                       ${log-lib} )

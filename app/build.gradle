@@ -2,47 +2,114 @@ apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
 
-apply plugin: 'kotlin-android-extensions'
-
 android {
-    compileSdkVersion 31
+    compileSdk 34
+    ndkVersion "27.0.12077973"  // Adding NDK version as recommended
+
     defaultConfig {
         applicationId "com.example.nativeopencvandroidtemplate"
-        minSdkVersion 28
-        targetSdkVersion 31
+        minSdk 21
+        targetSdk 34
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
         externalNativeBuild {
             cmake {
-                cppFlags "-frtti -fexceptions"
-                abiFilters 'x86', 'x86_64', 'armeabi-v7a', 'arm64-v8a'
-                arguments "-DOpenCV_DIR=" + opencvsdk + "/sdk/native"
+                cppFlags "-frtti -fexceptions -fPIC"
+                abiFilters 'x86', 'x86_64', 'arm64-v8a', 'armeabi-v7a'
+                arguments "-DOpenCV_DIR=" + opencvsdk + "/sdk/native/jni",
+                          "-DANDROID_LD_FLAGS=-Wl,-z,max-page-size=16384"
             }
         }
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug {
+            // Ensure debug builds also have 16 KB compatibility
+        }
     }
+
+    // Add packaging options for 16 KB page size compatibility
+    packagingOptions {
+        jniLibs {
+            useLegacyPackaging = false
+        }
+    }
+
     externalNativeBuild {
         cmake {
             path "src/main/cpp/CMakeLists.txt"
-            version "3.10.2"
+            version "3.18.1"
         }
     }
-    ndkVersion '21.3.6528147'
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+
+    namespace 'com.example.nativeopencvandroidtemplate'
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs += ["src/main/jniLibs"]
+        }
+    }
 }
 
+// Copy OpenCV native libs into conventional jniLibs folder before build
+tasks.register("copyOpenCvJniLibs", Copy) {
+    def srcDir = rootProject.file("OpenCV-android-sdk/sdk/native/libs")
+    def destDir = project.file("src/main/jniLibs")
+    from(srcDir)
+    into(destDir)
+    include("**/*.so")
+}
+
+preBuild.dependsOn("copyOpenCvJniLibs")
+
+// Verify OpenCV native shared libraries exist before assembling
+tasks.register("verifyOpenCvLibs") {
+    doLast {
+        def abiDirs = ["arm64-v8a","armeabi-v7a","x86","x86_64"]
+        def missing = []
+        abiDirs.each { abi ->
+            def f = rootProject.file("OpenCV-android-sdk/sdk/native/libs/${abi}/libopencv_java4.so")
+            if (!f.exists()) {
+                missing << f.path
+            }
+        }
+        if (!missing.isEmpty()) {
+            throw new GradleException("Missing OpenCV native libs (libopencv_java4.so). Not found at:\n" + missing.join('\n') + "\nPlease restore the official OpenCV Android SDK (unzipped) at OpenCV-android-sdk/ so that sdk/native/libs/<abi>/libopencv_java4.so exists.")
+        } else {
+            println "Verified OpenCV native libs present for all ABIs"
+        }
+    }
+}
+
+preBuild.dependsOn("verifyOpenCvLibs")
+
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.4.1'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-    implementation project(path: ':opencv')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.10.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    // OpenCV dependency
+    implementation project(':opencv')
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }
