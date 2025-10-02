@@ -19,7 +19,7 @@ Java_com_example_nativeopencvandroidtemplate_MainActivity_adaptiveThresholdFromJ
 
     clock_t begin = clock();
 
-    cv::adaptiveThreshold(mat, mat, 255, ADAPTIVE_THRESH_MEAN_C, THRESH_BINARY_INV, 21, 5);
+    cv::adaptiveThreshold(mat, mat, 255, ADAPTIVE_THRESH_MEAN_C, THRESH_BINARY, 9, 10);
 
     // log computation time to Android Logcat
     double totalTime = double(clock() - begin) / CLOCKS_PER_SEC;

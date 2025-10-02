@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data-extraction-rules>
+    <cloud-backup>
+        <!-- Exclude specific files or directories from cloud backup -->
+    </cloud-backup>
+    <device-transfer>
+        <!-- Exclude specific files or directories from device transfer -->
+    </device-transfer>
+</data-extraction-rules>
+
