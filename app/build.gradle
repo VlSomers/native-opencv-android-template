@@ -1,10 +1,8 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
 
 android {
     compileSdk 34
-    ndkVersion "27.0.12077973"  // Adding NDK version as recommended
 
     defaultConfig {
         applicationId "com.example.nativeopencvandroidtemplate"
@@ -17,10 +15,9 @@ android {
 
         externalNativeBuild {
             cmake {
-                cppFlags "-frtti -fexceptions -fPIC"
-                abiFilters 'x86', 'x86_64', 'arm64-v8a', 'armeabi-v7a'
-                arguments "-DOpenCV_DIR=" + opencvsdk + "/sdk/native/jni",
-                          "-DANDROID_LD_FLAGS=-Wl,-z,max-page-size=16384"
+                cppFlags "-frtti -fexceptions"
+                abiFilters 'arm64-v8a', 'armeabi-v7a'
+                arguments "-DOpenCV_DIR=" + opencvsdk + "/sdk/native/jni"
             }
         }
     }
@@ -29,16 +26,6 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-        debug {
-            // Ensure debug builds also have 16 KB compatibility
-        }
-    }
-
-    // Add packaging options for 16 KB page size compatibility
-    packagingOptions {
-        jniLibs {
-            useLegacyPackaging = false
         }
     }
 
@@ -59,45 +46,7 @@ android {
     }
 
     namespace 'com.example.nativeopencvandroidtemplate'
-
-    sourceSets {
-        main {
-            jniLibs.srcDirs += ["src/main/jniLibs"]
-        }
-    }
 }
-
-// Copy OpenCV native libs into conventional jniLibs folder before build
-tasks.register("copyOpenCvJniLibs", Copy) {
-    def srcDir = rootProject.file("OpenCV-android-sdk/sdk/native/libs")
-    def destDir = project.file("src/main/jniLibs")
-    from(srcDir)
-    into(destDir)
-    include("**/*.so")
-}
-
-preBuild.dependsOn("copyOpenCvJniLibs")
-
-// Verify OpenCV native shared libraries exist before assembling
-tasks.register("verifyOpenCvLibs") {
-    doLast {
-        def abiDirs = ["arm64-v8a","armeabi-v7a","x86","x86_64"]
-        def missing = []
-        abiDirs.each { abi ->
-            def f = rootProject.file("OpenCV-android-sdk/sdk/native/libs/${abi}/libopencv_java4.so")
-            if (!f.exists()) {
-                missing << f.path
-            }
-        }
-        if (!missing.isEmpty()) {
-            throw new GradleException("Missing OpenCV native libs (libopencv_java4.so). Not found at:\n" + missing.join('\n') + "\nPlease restore the official OpenCV Android SDK (unzipped) at OpenCV-android-sdk/ so that sdk/native/libs/<abi>/libopencv_java4.so exists.")
-        } else {
-            println "Verified OpenCV native libs present for all ABIs"
-        }
-    }
-}
-
-preBuild.dependsOn("verifyOpenCvLibs")
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"

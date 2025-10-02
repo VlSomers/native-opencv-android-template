@@ -7,16 +7,19 @@ cmake_minimum_required(VERSION 3.18.1)
 
 project("native-lib")
 
-# Set OpenCV root directory - corrected path
-set(OpenCV_ROOT_DIR ${CMAKE_SOURCE_DIR}/../../../../OpenCV-android-sdk/sdk)
+# Use OpenCV_DIR passed from gradle (via arguments in build.gradle)
+# This eliminates the need for hardcoded paths and uses the opencvsdk gradle property
+if(NOT DEFINED OpenCV_DIR)
+    message(FATAL_ERROR "OpenCV_DIR not set. Make sure it's passed from gradle build.gradle")
+endif()
 
 # Include OpenCV headers
-include_directories(${OpenCV_ROOT_DIR}/native/jni/include)
+include_directories(${OpenCV_DIR}/include)
 
 # Add prebuilt OpenCV library
 add_library(opencv_java4 SHARED IMPORTED)
 set_target_properties(opencv_java4 PROPERTIES
-    IMPORTED_LOCATION ${OpenCV_ROOT_DIR}/native/libs/${ANDROID_ABI}/libopencv_java4.so)
+    IMPORTED_LOCATION ${OpenCV_DIR}/../libs/${ANDROID_ABI}/libopencv_java4.so)
 
 # Creates and names a library, sets it as either STATIC
 # or SHARED, and provides the relative paths to its source code.
