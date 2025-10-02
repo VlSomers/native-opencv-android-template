@@ -19,6 +19,11 @@ This sample Android application displays a live camera feed with an OpenCV *adap
 | Target SDK | 34 (Android 14)
 | Mac OS | 12.4
 
+## Updates
+
+### October 2, 2025
+- **Claude Sonnet Assisted Update**: Project updated to OpenCV 4.12.0 and latest Android development tools
+
 ## How to use this repository
 
 1. [Download and Install Android Studio](https://developer.android.com/studio)
